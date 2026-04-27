@@ -2,18 +2,114 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Tải ứng dụng</title>
+    <title>Worldwide Weather</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            background: white;
+            padding: 45px;
+            border-radius: 22px;
+            text-align: center;
+            width: 380px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        .icon {
+            font-size: 55px;
+        }
+
+        h1 {
+            margin: 10px 0 5px;
+        }
+
+        .sub {
+            color: gray;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #444;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 14px 22px;
+            background: #0072ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            background: #005bcc;
+        }
+
+        .lang-btn {
+            margin-top: 15px;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #eee;
+        }
+    </style>
 </head>
-<body style="text-align:center; font-family:Arial; margin-top:100px;">
 
-    <h1>🚀 Ứng dụng của tôi</h1>
-    <p>Bấm nút để tải app installer</p>
+<body>
 
-    <a href="appinstaller.exe" download>
-        <button style="padding:15px 30px; font-size:18px;">
-            ⬇ Tải xuống
-        </button>
+<div class="card">
+    <div class="icon">🌍</div>
+
+    <h1 id="title">Worldwide Weather</h1>
+    <div class="sub" id="subtitle">Thời tiết toàn cầu</div>
+
+    <p id="desc">Check weather information for any city in the world</p>
+
+    <a class="btn" href="appinstaller.exe" download id="downloadBtn">
+        ⬇ Download App
     </a>
+
+    <br>
+
+    <button class="lang-btn" onclick="toggleLang()">
+        🌐 Language
+    </button>
+</div>
+
+<script>
+    let lang = "en";
+
+    function toggleLang() {
+        if (lang === "en") {
+            // chuyển sang tiếng Việt
+            document.getElementById("title").innerText = "Thời tiết toàn cầu";
+            document.getElementById("subtitle").innerText = "Ứng dụng thời tiết";
+            document.getElementById("desc").innerText = "Kiểm tra thời tiết của bất kỳ thành phố nào trên thế giới";
+            document.getElementById("downloadBtn").innerText = "⬇ Tải ứng dụng";
+            lang = "vi";
+        } else {
+            // chuyển sang English
+            document.getElementById("title").innerText = "Worldwide Weather";
+            document.getElementById("subtitle").innerText = "Weather App";
+            document.getElementById("desc").innerText = "Check weather information for any city in the world";
+            document.getElementById("downloadBtn").innerText = "⬇ Download App";
+            lang = "en";
+        }
+    }
+</script>
 
 </body>
 </html>
